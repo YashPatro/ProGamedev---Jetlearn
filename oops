@@ -1,0 +1,48 @@
+#07/09/24
+
+'''def hello():
+    name = input('hello, Im yash what is your name? ')
+    print(f'hello, {name}, how are you')
+
+hello()'''
+
+class students:
+    def __init__(self,name,age,teacher,house,grade):
+        self.name = name
+        self.age = age
+        self.teacher = teacher
+        self.house = house
+        self.grade = grade
+    def show_details(self):
+        print('details of the students:')
+        print('name:',self.name)
+        print('age:',self.age)
+        print('teacher:',self.teacher)
+        print('house:',self.house)
+        print('grade:',self.grade)
+
+st1 = students('Yash',13,'mr Patro','KM','Yr9')
+st1.show_details()
+
+st2 = students('James',12,'mr James','slytherin','yr8')
+
+st2.show_details()
+
+class fruits:
+    def __init__(self,name,shape,colour,taste,size):
+        self.name = name
+        self.shape = shape
+        self.colour = colour
+        self.taste = taste
+        self.size = size
+        
+
+    def details(self):
+        print('Name = ',self.name)
+        print('Shape = ',self.shape)
+        print('Colour = ',self.colour)
+        print('Taste = ',self.taste)
+        print('Size = ',self.size)
+
+orange = fruits('orange','sphere','orange','sweet','medium(around a 3 inch diameter)')
+orange.details()

@@ -1,0 +1,26 @@
+#18/09/24
+
+import pygame
+pygame.init()
+
+sc = pygame.display.set_mode((500,500))
+
+class Rect:
+    def __init__(self,colour,dimensions):
+        self.sc = sc
+        self.colour = colour
+        self.dimensions = dimensions
+
+    def draw(self):
+        self.draw_rect = pygame.draw.rect(self.sc,self.colour,self.dimensions)
+
+rect1 = Rect('red',(200,200,100,150))
+
+while True:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            exit()
+    sc.fill('sky blue')
+
+    rect1.draw()
+    pygame.display.update()

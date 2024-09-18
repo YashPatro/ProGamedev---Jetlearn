@@ -1,0 +1,34 @@
+#18/09/24
+
+#parent class
+
+class person:
+    def __init__(self,name,id_number):
+        self.name = name
+        self.id_number = id_number
+
+    def details(self):
+        print('Name: ', self.name)
+        print('ID: ', self.id_number)
+#child class
+
+class employee(person):
+    def __init__(self,name,id_number,salary,position):
+        person.__init__(self,name,id_number)
+        self.salary = salary
+        self.position = position
+
+    def details2(self):
+        print('Name = ', self.name)
+        print('ID = ', self.id_number)
+        print('Salary = ', self.salary)
+        print('Position = ', self.position)
+
+Employee = employee('David',19829,'£30 per hour','COO')
+
+Employee.details2()
+Employee.details()
+
+p1 = person('john','1223')
+p1.details()
+p1.details2()

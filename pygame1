@@ -24,3 +24,26 @@ while True:
 
     rect1.draw()
     pygame.display.update()
+
+#circle dimensions = screen,centre,radius
+#homework
+
+class Circ:
+    def __init__(self,colour,centre,radius):
+        self.sc = sc
+        self.colour = colour
+        self.centre = centre
+        self.radius = radius
+    def draw(self):
+        self.draw_circle = pygame.draw.circle(self.sc,self.colour,self.centre,self.radius)
+
+circle1 = Circ('red',(100,100),50)
+
+while True:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            exit()
+    sc.fill('sky blue')
+    circle1.draw()
+
+    pygame.display.update()

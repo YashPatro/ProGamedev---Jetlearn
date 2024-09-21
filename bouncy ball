@@ -1,0 +1,55 @@
+#21/09/24
+
+x = 160
+y = 140
+import os
+os.environ['SDL_VIDEO_WINDOW_POS'] = f'{x},{y}'
+
+import pgzrun
+
+
+TITLE = 'Bouncy ball'
+
+HEIGHT = 800
+WIDTH = 800
+
+g = 8000
+
+class Ball:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+        self.vx = 200
+        self.vy = 0
+        self.radius = 40
+
+    def draw(self):
+        screen.draw.filled_circle((self.x,self.y),self.radius,'red')
+
+ball = Ball(40,300)
+
+def draw():
+    screen.clear()
+    ball.draw()
+
+def update(t):
+    uy = ball.vy
+    
+    ball.vy+=g*t
+    ball.y+=(uy+ball.vy) * 0.5 * t
+    if ball.y>HEIGHT:
+        ball.y=800-ball.radius
+        ball.vy =-ball.vy*0.6
+
+    ball.x+=ball.vx*t
+
+    if ball.x<ball.radius or ball.x>WIDTH-ball.radius:
+        ball.vx = - ball.vx
+
+def on_key_down(key):
+    if key == keys.SPACE:
+        ball.vy = -500
+    
+pgzrun.go()
+        
+    

@@ -45,11 +45,82 @@ def update(t):
 
     if ball.x<ball.radius or ball.x>WIDTH-ball.radius:
         ball.vx = - ball.vx
-
 def on_key_down(key):
     if key == keys.SPACE:
         ball.vy = -500
     
 pgzrun.go()
+
+#homework
+
+x = 160
+y = 140
+import os
+os.environ['SDL_VIDEO_WINDOW_POS'] = f'{x},{y}'
+
+import pgzrun,random
+
+
+TITLE = 'Bouncy ball'
+
+HEIGHT = 800
+WIDTH = 800
+
+g = 2000
+
+
+class Ball:
+    
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+        self.vx = 200
+        self.vy = 0
+        self.radius = 40
+        self.r = random.randint(0,255)
+        self.b = random.randint(0,255)
+        self.g = random.randint(0,255)
+    def draw(self):
+        screen.draw.filled_circle((self.x,self.y),self.radius,(self.r,self.g,self.b))
+
+ball = Ball(40,300)
+ball1 = Ball(80,200)
+def draw():
+    screen.clear()
+    ball.draw()
+    ball1.draw()
+
+def update(t):
+    uy = ball.vy
+    uy1 = ball1.vy
+    
+    ball.vy+=g*t
+    ball.y+=(uy+ball.vy) * 0.5 * t
+    if ball.y>HEIGHT:
+        ball.y=800-ball.radius
+        ball.vy =-ball.vy*0.8
+    ball1.vy+=g*t
+    ball1.y+=(uy+ball1.vy) * 0.5 * t
+    if ball1.y>HEIGHT:
+        ball1.y=800-ball1.radius
+        ball1.vy =-ball1.vy*0.5
+
+    ball.x+=ball.vx*t
+    ball1.x+=ball1.vx*t
+
+    if ball.x<ball.radius or ball.x>WIDTH-ball.radius:
+        ball.vx = - ball.vx
+    if ball1.x<ball1.radius or ball1.x>WIDTH-ball1.radius:
+        ball1.vx = - ball1.vx
+
+def on_key_down(key):
+    if key == keys.SPACE:
+        ball.vy = -800
+    if key == keys.K:    
+        ball1.vy = -800    
+pgzrun.go()
+        
+    
+
         
     

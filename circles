@@ -1,0 +1,54 @@
+#28/09/24
+
+import pygame
+
+pygame.init()
+
+sc = pygame.display.set_mode((500,500))
+
+class Circle:
+    def __init__(self,colour,pos,radius,width):
+        self.colour = colour
+        self.pos = pos
+        self.radius = radius
+        self.width = width
+        self.sc = sc
+
+    def draw(self):
+        pygame.draw.circle(self.sc,self.colour,self.pos,self.radius,self.width)
+        
+    def grow(self,x):
+        self.radius+=x
+        pygame.draw.circle(self.sc,self.colour,self.pos,self.radius,self.width)
+pos1 = (250,250)
+c1 = Circle('red',pos1,40,80)
+c2 = Circle('orange',pos1,60,80)
+c3 = Circle('yellow',pos1,80,80)
+c4 = Circle('white',pos1,100,80)
+
+
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+        
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            c1.draw()
+            c2.draw()
+            c3.draw()
+            c4.draw()
+            
+            pygame.display.update()
+        elif event.type == pygame.MOUSEBUTTONUP:
+            c1.grow(25)
+            c2.grow(25)
+            c3.grow(25)
+            c4.grow(25)
+            
+            pygame.display.update()
+        elif event.type == pygame.MOUSEMOTION:
+            pos = pygame.mouse.get_pos()
+            black = Circle('black',pos,5,1)
+            black.draw()
+            pygame.display.update() 

@@ -1,0 +1,41 @@
+#28/09/24
+
+import pygame,random
+
+pygame.init()
+
+sc = pygame.display.set_mode((500,500))
+
+clr = ['sky blue','red','dark green','orange','purple','yellow']
+clr1 = 'white'
+
+drawing = False
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            drawing = True
+            lastpos = event.pos
+
+            pygame.display.update()
+
+        if event.type == pygame.MOUSEBUTTONUP:
+            drawing = False
+
+            pygame.display.update()
+
+        if event.type == pygame.MOUSEMOTION:
+            lastpos = event.pos
+
+            curpos = event.pos
+            if drawing:
+                pygame.draw.line(sc,clr1,lastpos,curpos)
+                pygame.display.update() 
+
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_c:
+                new_clr = random.choice(clr)
+                clr1 = new_clr
+                pygame.display.update()

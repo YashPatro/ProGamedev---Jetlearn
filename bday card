@@ -1,0 +1,26 @@
+#05/10/24
+
+import pygame,time
+
+pygame.init()
+sc = pygame.display.set_mode((600,600))
+title = pygame.display.set_caption('BIRTHDAY!')
+
+pygame.display.update()
+
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+
+    present = pygame.image.load('present.jpg')
+    balloons = pygame.image.load('balloons.jpg')
+    cake = pygame.image.load('cake.jpg')
+    font = pygame.font.SysFont('Arial',60)
+    txt = font.render('Happy Birthday!',True,'Red')    
+    
+    sc.blit(cake,(0,0))
+    sc.blit(txt,(120,50))
+    pygame.display.update()    
+    time.sleep(2.5)

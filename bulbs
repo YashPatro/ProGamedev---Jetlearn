@@ -1,0 +1,51 @@
+#05/10/24
+
+import pygame
+
+pygame.init()
+sc = pygame.display.set_mode((300,300))
+
+pygame.display.update()
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+        
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            bright = pygame.image.load('C:/Users/Administrator/Desktop/ProGamedev - Jetlearn/images/bright_bulb.jpg')
+            sc.blit(bright,(0,0))
+            pygame.display.update()
+
+        elif event.type == pygame.MOUSEBUTTONUP:
+            dim = pygame.image.load('C:/Users/Administrator/Desktop/ProGamedev - Jetlearn/images/dim_bulb.jpg')
+
+            sc.blit(dim,(0,0))
+            pygame.display.update()
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

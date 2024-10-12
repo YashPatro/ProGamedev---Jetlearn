@@ -3,7 +3,7 @@
 import pygame,time
 
 pygame.init()
-sc = pygame.display.set_mode((600,600))
+sc = pygame.display.set_mode((500,500))
 title = pygame.display.set_caption('BIRTHDAY!')
 
 pygame.display.update()
@@ -14,13 +14,50 @@ while True:
         if event.type == pygame.QUIT:
             exit()
 
-    present = pygame.image.load('present.jpg')
-    balloons = pygame.image.load('balloons.jpg')
-    cake = pygame.image.load('cake.jpg')
+    sc.fill('black')
+ 
+    balloons = pygame.image.load('balloons.png')
     font = pygame.font.SysFont('Arial',60)
-    txt = font.render('Happy Birthday!',True,'Red')    
+    txt = font.render('Happy Birthday!',True,'Red')
+    sc.blit(balloons,(0,0))    
+    sc.blit(txt,(100,50))
+    pygame.display.update()    
     
-    sc.blit(cake,(0,0))
-    sc.blit(txt,(120,50))
+    time.sleep(2.5)
+    
+    present = pygame.image.load('present.jpg')
+    font = pygame.font.SysFont('Arial',60)
+    txt = font.render('Happy Birthday!',True,'Red')
+    sc.blit(present,(0,0))    
+    sc.blit(txt,(100,50))
+    
     pygame.display.update()    
     time.sleep(2.5)
+    
+    cake = pygame.image.load('cake.png')
+
+    font = pygame.font.SysFont('Arial',60)
+    txt = font.render('Happy Birthday!',True,'Red')
+    sc.blit(cake,(0,0))    
+    sc.blit(txt,(100,50))
+    
+    pygame.display.update()    
+    time.sleep(2.5)
+
+    #homework due 12/10/24
+    '''m = pygame.image.load('moon.png')
+    s = pygame.image.load('santa.png')
+    xmas = pygame.image.load('tree1.png')
+    stars = pygame.image.load('stars_back.jpg')
+    font = pygame.font.SysFont('Calibri',60)
+    text = font.render('Merry Chrismas!',True,'red')
+
+    sc.blit(stars,(0,0))
+    sc.blit(m,(15,0))
+    sc.blit(s,(50,75))
+    sc.blit(xmas,(100,175))
+    sc.blit(text,(60,45))
+    '''
+
+
+

@@ -1,0 +1,56 @@
+#12/10/24
+
+import pygame
+
+pygame.init()
+sc = pygame.display.set_mode((500,500))
+title = pygame.display.set_caption('MATCH UP!')
+
+sc.fill('sky blue')
+surf = pygame.image.load('subway_surf.png')
+sc.blit(surf,(100,50))
+
+temp = pygame.image.load('templerun.png')
+sc.blit(temp,(100,150))
+
+ludo = pygame.image.load('ludo.png')
+sc.blit(ludo,(100,250))
+
+candy = pygame.image.load('candycrush.jpg')
+sc.blit(candy,(100,350))
+
+font = pygame.font.SysFont('Calibri',30)
+clr = 'black'
+
+ludotxt = font.render('Ludo',True,clr)
+sc.blit(ludotxt,(300,80)) 
+surftxt = font.render('Subway surfers',True,clr)
+sc.blit(surftxt,(300,180))
+candytxt = font.render('Candy crush',True,clr)
+sc.blit(candytxt,(300,280))
+temptxt = font.render('Temple run',True,clr)
+sc.blit(temptxt,(300,380))
+
+
+
+
+pygame.display.update()
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+  
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            pos1 = pygame.mouse.get_pos()
+            
+            pygame.draw.circle(sc,clr,pos1,10,0)
+            pygame.display.update()
+
+        if event.type == pygame.MOUSEBUTTONUP:
+            pos2 = pygame.mouse.get_pos()
+            
+            pygame.draw.line(sc,clr,pos1,pos2,5)
+            pygame.draw.circle(sc,clr,pos2,10,0)
+
+            pygame.display.update()
+        
